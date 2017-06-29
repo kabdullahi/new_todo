@@ -24,6 +24,17 @@ router.post("/", function(req, res) {
 })
 })
 
+router.get("/complete/:id", function(req, res) {
+  models.todo.findById(req.params.id).then(function(completetodo) {
+    // todo.complete().then(function() {
+      completetodo.complete = true;
+      console.log(completetodo.complete);
+      completetodo.save();
+      res.redirect("/");
+    // })
+  })
+})
+
 router.get("/delete/:id", function(req, res) {
   models.todo.findById(req.params.id).then(function(todo) {
     todo.destroy().then(function() {

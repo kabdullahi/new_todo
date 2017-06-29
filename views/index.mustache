@@ -12,10 +12,24 @@
       </form>
       <ul>
         {{#task}}
+        {{^complete}}
           <li>
             {{task}}
-            <a href="/delete/{{id}}">complete</a>
+            <a href="/complete/{{id}}">complete</a>
           </li>
+          {{/complete}}
+        {{/task}}
+
+        <h1>Completed</h1>
+
+        {{#task}}
+        {{#complete}}
+        <li>
+          {{task}}
+        <a href="/delete/{{id}}">delete</a>
+        </li>
+
+        {{/complete}}
         {{/task}}
       </ul>
   </body>
