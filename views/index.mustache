@@ -6,8 +6,17 @@
   </head>
   <body>
       <h1>My Todo List</h1>
-      {{#task}}
-        {{.}}
-      {{/task}}
+      <form class="input" action="/" method="post">
+        <input type="text" name="task" value="" placeholder="task">
+        <button type="submit" name="button">submit</button>
+      </form>
+      <ul>
+        {{#task}}
+          <li>
+            {{task}}
+            <a href="/delete/{{id}}">complete</a>
+          </li>
+        {{/task}}
+      </ul>
   </body>
 </html>
